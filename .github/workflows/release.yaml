@@ -1,0 +1,24 @@
+name: Create Release on Tag
+
+on:
+  push:
+    tags:
+      - 'v*' # Dispara apenas quando você sobe uma tag que começa com v (ex: v1.0.0)
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          generate_release_notes: true # Gera changelog automático baseado nos commits
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
