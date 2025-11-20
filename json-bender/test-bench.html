@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>JB - Bancada de Testes</title>
+    <style>
+        body { font-family: sans-serif; padding: 40px; background: #f4f4f4; }
+        .box { background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        textarea { width: 100%; height: 100px; font-family: monospace; }
+        code { background: #eee; padding: 2px 5px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h1>🕵️ Bancada de Testes: Json Bender</h1>
+
+    <div class="box">
+        <h3>1. Texto Estático (Read-Only)</h3>
+        <p>Selecione o texto abaixo e use o botão direito:</p>
+        <p id="staticText">{"nome":"Bruce","tipo":"Cachorro","idade":5}</p>
+        <small>Expectativa: Copiar JSON formatado para o Clipboard.</small>
+    </div>
+
+    <div class="box">
+        <h3>2. Campo Editável (Input/Textarea)</h3>
+        <p>Selecione o texto DENTRO da caixa e use o botão direito:</p>
+        <textarea id="editableArea">{"projeto":"JB","status":"Beta"}</textarea>
+        <small>Expectativa: O texto deve mudar aqui dentro magicamente.</small>
+    </div>
+</body>
+</html>
