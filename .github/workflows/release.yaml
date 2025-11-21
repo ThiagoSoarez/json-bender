@@ -3,22 +3,27 @@ name: Create Release on Tag
 on:
   push:
     tags:
-      - 'v*' # Dispara apenas quando você sobe uma tag que começa com v (ex: v1.0.0)
+      - 'v*'
 
 permissions:
   contents: write
 
 jobs:
-  build:
-    name: Create Release
+  build-and-release:
+    name: Build and Release Extension
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Zip Extension
+        run: |
+          zip -r json-bender-extension.zip . -x "*.git*" -x ".github/*" -x "icon-generator.html" -x "test-bench.html" -x "*.DS_Store"
+
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          generate_release_notes: true # Gera changelog automático baseado nos commits
+          files: json-bender-extension.zip
+          generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
