@@ -5,8 +5,7 @@
   "description": "Se torne o último dobrador de JSONs: Stringfy, Unstringfy e JSON Formatter.",
   "permissions": [
     "contextMenus",   
-    "activeTab",      
-    "scripting"       
+    "activeTab"       
   ],
   "background": {
     "service_worker": "background.js"
